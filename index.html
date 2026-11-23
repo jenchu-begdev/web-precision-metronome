@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<script data-goatcounter="https://gitjenchu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>免費線上節拍器、樂器練習、跑步都好用，免安裝，無廣告</title>
+  <meta name="description" content="精準好用的免費線上節拍器，沒有廣告干擾，5 種音色可選，支援 20～3000 BPM 極廣速度調整、輕敲測速與定時關閉功能。專為運動與樂器練習打造，針對鍵盤操作優化，免安裝，開啟網頁即可使用，跟著節拍器一起練習吧。">
+  <meta name="keywords" content="節拍器, 線上節拍器, 無廣告節拍器, 樂器練習, 音樂練習, 運動節拍器, 跑步節拍器, BPM測速, 輕敲測速, 定時節拍器">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#111827">
+
+  <!-- Open Graph / 社群分享標籤 (LINE, Facebook 等) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="免費線上節拍器、樂器練習、跑步都好用，免安裝，無廣告">
+  <meta property="og:description" content="精準好用的免費線上節拍器，沒有廣告干擾，5 種音色可選，支援 20～3000 BPM 極廣速度調整、輕敲測速與定時關閉功能。專為運動與樂器練習打造，針對鍵盤操作優化，免安裝，開啟網頁即可使用。">
+  <meta property="og:site_name" content="免費線上節拍器">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="免費線上節拍器、樂器練習、跑步都好用，免安裝，無廣告">
+  <meta name="twitter:description" content="沒有廣告干擾的免費線上節拍器，支援輕敲測速、5 種音色、定時關閉與全鍵盤操作優化。">
+
+  <!-- 網站圖示 (Favicon: 內嵌現代化 SVG 節拍器圖示) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300f0ff'/%3E%3Cstop offset='100%25' stop-color='%23a855f7'/%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='%23111827'/%3E%3Cpath d='M30 82 L42 22 L58 22 L70 82 Z' fill='none' stroke='url(%23g)' stroke-width='6' stroke-linejoin='round'/%3E%3Cline x1='50' y1='76' x2='64' y2='34' stroke='%23ff4a4a' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='64' cy='34' r='6' fill='%23ff4a4a'/%3E%3Ccircle cx='50' cy='76' r='4' fill='white'/%3E%3C/svg%3E">
+
+  <!-- 結構化資料 (Schema.org JSON-LD: 軟體應用工具) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "免費線上節拍器",
+    "applicationCategory": "MusicApplication, SportsApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "TWD"
+    },
+    "description": "精準好用的免費線上節拍器，沒有廣告干擾，5 種音色可選，支援 20～3000 BPM 極廣速度調整、輕敲測速與定時關閉功能。專為運動與樂器練習打造，針對鍵盤操作優化，免安裝，開啟網頁即可使用。"
+  }
+  </script>
+  
+  <!-- 引入現代字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS 變數定義：配色系統、字型與間距 */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #090d16 0%, #111827 50%, #1e1b4b 100%);
+      --card-bg: rgba(17, 24, 39, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #00f0ff;
+      --primary-glow: rgba(0, 240, 255, 0.35);
+      --accent: #10b981;
+      --accent-glow: rgba(16, 185, 129, 0.35);
+      --accent-orange: #ff4a4a;
+      --accent-orange-glow: rgba(255, 74, 74, 0.35);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --focus-ring: #f59e0b;
+      --focus-ring-glow: rgba(245, 158, 11, 0.5);
+      --beat-indicator-off: #334155;
+    }
+
+    /* 基礎重設與排版 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* 針對減少動效使用者的 CSS */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-delay: 0s !important;
+        animation-duration: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0s !important;
+        scroll-behavior: auto !important;
+      }
+      main.pulse-accent,
+      main.pulse-normal {
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+        border-color: var(--card-border) !important;
+      }
+      .beat-dot {
+        transform: none !important;
+      }
+    }
+
+    /* 無障礙：跳過導覽連結 (Skip to content) */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      background: var(--focus-ring);
+      color: #000;
+      padding: 12px 24px;
+      z-index: 100;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 20px;
+      outline: 3px solid #fff;
+    }
+
+    /* 頁面標題區 */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(to right, var(--primary), #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 440px;
+      line-height: 1.6;
+    }
+
+    /* 節拍器主卡片 */
+    main {
+      width: 100%;
+      max-width: 480px;
+      background: var(--card-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 35px 30px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      position: relative;
+      transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    /* 精確控制組件的 Focus Ring，確保鍵盤操作清晰可見且符合 WCAG Contrast */
+    button:focus-visible,
+    input[type="range"]:focus-visible,
+    input[type="text"]:focus-visible,
+    input[type="number"]:focus-visible,
+    select:focus-visible,
+    input[type="checkbox"]:focus-visible,
+    h1:focus-visible,
+    h2:focus-visible,
+    .section-title:focus-visible,
+    .shortcuts-title:focus-visible {
+      outline: 3px solid var(--focus-ring) !important;
+      outline-offset: 4px;
+      box-shadow: 0 0 15px var(--focus-ring-glow) !important;
+      border-radius: 8px;
+    }
+
+    /* 節拍時的卡片發光脈動特效 (微動效) */
+    main.pulse-accent {
+      box-shadow: 0 0 45px var(--accent-orange-glow), 0 20px 50px rgba(0, 0, 0, 0.45);
+      border-color: var(--accent-orange);
+    }
+
+    main.pulse-normal {
+      box-shadow: 0 0 45px var(--primary-glow), 0 20px 50px rgba(0, 0, 0, 0.45);
+      border-color: var(--primary);
+    }
+
+    /* 數值顯示區 (BPM) */
+    .bpm-display-container {
+      text-align: center;
+      margin-bottom: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 25px;
+      margin-top: 25px;
+    }
+
+    .bpm-number {
+      font-family: 'Fira Code', monospace;
+      font-size: 6.5rem;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--primary);
+      text-shadow: 0 0 30px var(--primary-glow);
+      display: inline-block;
+      user-select: none;
+    }
+
+    .bpm-label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+
+    /* BPM 微調按鈕與滑桿 */
+    .control-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .btn-adjust {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-adjust:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    .btn-adjust:active {
+      transform: translateY(0);
+    }
+
+    /* 自訂滑桿外觀 */
+    .slider-container {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--beat-indicator-off);
+      outline: 3px solid transparent;
+      outline-offset: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease, outline-color 0.2s ease;
+    }
+
+    input[type="range"]:focus {
+      outline-color: var(--focus-ring);
+      box-shadow: 0 0 15px var(--focus-ring-glow);
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary-glow);
+      cursor: pointer;
+      transition: transform 0.1s ease, background-color 0.2s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      background: #ffffff;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border: none;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary-glow);
+      cursor: pointer;
+      transition: transform 0.1s ease, background-color 0.2s;
+    }
+
+    input[type="range"]::-moz-range-thumb:hover {
+      transform: scale(1.15);
+      background: #ffffff;
+    }
+
+    /* 播放主按鈕 */
+    .btn-play-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .btn-play {
+      background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+      color: #0f172a;
+      border: none;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 240, 255, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .btn-play::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transform: scale(1);
+      transition: all 0.5s ease;
+    }
+
+    .btn-play:hover {
+      transform: scale(1.08);
+      box-shadow: 0 15px 35px rgba(0, 240, 255, 0.5);
+    }
+
+    .btn-play:hover::after {
+      opacity: 1;
+      transform: scale(1.25);
+    }
+
+    .btn-play.playing {
+      background: linear-gradient(135deg, var(--accent) 0%, #059669 100%);
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-play.playing:hover {
+      box-shadow: 0 15px 35px rgba(16, 185, 129, 0.5);
+    }
+
+    /* 視覺燈號閃爍區 */
+    .visual-beats-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+      min-height: 24px;
+    }
+
+    .beat-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: var(--beat-indicator-off);
+      transition: background-color 0.08s ease, transform 0.08s ease;
+    }
+
+    .beat-dot.accent-active {
+      background-color: var(--accent-orange);
+      box-shadow: 0 0 18px var(--accent-orange-glow);
+      transform: scale(1.3);
+    }
+
+    .beat-dot.normal-active {
+      background-color: var(--primary);
+      box-shadow: 0 0 15px var(--primary-glow);
+      transform: scale(1.15);
+    }
+
+    /* 播放時定時剩餘時間醒目顯示區 (在開始按鈕下方、選定時上方) */
+    .running-timer-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      margin-top: -10px;
+    }
+
+    .running-timer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 30px;
+      padding: 8px 22px;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+    }
+
+    .running-timer-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #6ee7b7;
+      letter-spacing: 0.5px;
+    }
+
+    .running-timer-time {
+      font-family: 'Fira Code', monospace;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+    }
+
+    /* 定時關閉設定區 */
+    .timer-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 16px 18px;
+      margin-bottom: 25px;
+    }
+
+    .timer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .timer-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      letter-spacing: 0.5px;
+    }
+
+    .timer-status {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .timer-status.active {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .timer-controls-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .timer-custom-field {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: var(--text-main);
+      padding: 11px 12px;
+      font-size: 0.95rem;
+      font-family: 'Fira Code', monospace;
+      outline: 3px solid transparent;
+      outline-offset: 3px;
+      width: 100%;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .timer-custom-field:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 15px var(--primary-glow);
+      outline-color: var(--focus-ring);
+    }
+
+    .timer-action-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-reset-timer {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      color: var(--text-muted);
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-reset-timer:hover {
+      background: rgba(255, 74, 74, 0.12);
+      border-color: var(--accent-orange);
+      color: #fca5a5;
+    }
+
+    .btn-reminder {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      color: var(--text-main);
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-reminder:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--primary);
+    }
+
+    .btn-reminder[aria-pressed="true"] {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: var(--accent);
+      color: #6ee7b7;
+    }
+
+    .btn-reminder[aria-pressed="false"] {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+    }
+
+    /* 拍號與進階設定區 */
+    .settings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* 音量設定欄位 */
+    .input-group-full {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding-top: 15px;
+    }
+
+    .volume-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #volume-value-display {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .volume-slider-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    select {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: var(--text-main);
+      padding: 12px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      width: 100%;
+      outline: 3px solid transparent;
+      outline-offset: 3px;
+      transition: all 0.2s;
+    }
+
+    select:focus {
+      outline-color: var(--focus-ring);
+      box-shadow: 0 0 15px var(--focus-ring-glow);
+    }
+
+    select:hover {
+      border-color: var(--primary);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    /* 自訂手動輸入框與輕敲測速按鈕 */
+    .bpm-input-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .btn-tap {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      color: var(--text-main);
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+    }
+
+    .btn-tap:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .btn-tap:active {
+      transform: scale(0.96);
+      background: rgba(0, 240, 255, 0.2);
+      border-color: var(--primary);
+    }
+
+    .bpm-input-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .bpm-input-field {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: var(--primary);
+      padding: 8px 12px;
+      font-size: 1.1rem;
+      font-family: 'Fira Code', monospace;
+      font-weight: 600;
+      width: 100px;
+      text-align: center;
+      outline: 3px solid transparent;
+      outline-offset: 3px;
+      transition: all 0.2s ease;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .bpm-input-field:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 15px var(--primary-glow), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+      outline-color: var(--focus-ring);
+    }
+
+    .switch-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 15px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .switch-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .switch-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .switch-label-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .btn-setting-toggle {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      color: #6ee7b7;
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+      min-width: 130px;
+      text-align: center;
+    }
+
+    .btn-setting-toggle:hover {
+      background: rgba(16, 185, 129, 0.25);
+      border-color: #34d399;
+      transform: translateY(-1px);
+    }
+
+    .btn-setting-toggle[aria-pressed="false"] {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+    }
+
+    .btn-setting-toggle[aria-pressed="false"]:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: var(--text-main);
+    }
+
+    /* 螢幕閱讀器專用隱藏樣式 (Accessible Rich Internet Applications) */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* 區塊容器與標題樣式 */
+    .section-container {
+      position: relative;
+    }
+
+    .section-container:focus {
+      outline: none;
+    }
+
+    .section-container + .section-container {
+      margin-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 26px;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title svg {
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    /* 鍵盤操作說明區 */
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .shortcuts-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      padding: 15px;
+    }
+
+    .shortcuts-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .shortcuts-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      list-style: none;
+    }
+
+    .shortcuts-list kbd {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: inherit;
+      color: var(--text-main);
+    }
+
+    /* 自適應手機版型 */
+    @media (max-width: 480px) {
+      main {
+        padding: 25px 20px;
+      }
+      .bpm-number {
+        font-size: 5rem;
+      }
+      .settings-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      .timer-controls-grid {
+        grid-template-columns: 1fr;
+      }
+      .input-group-full {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 無障礙快速連結 -->
+  <a href="#heading-play-timer" class="skip-link">跳過導覽，直接進入播放與定時設定區</a>
+
+  <header>
+    <h1 tabindex="0">免費節拍器</h1>
+    <p class="subtitle" id="app-description">
+      無廣告干擾、運動與音樂練習通用。支援輕敲測速 (T)、定時關閉與全鍵盤操作優化。
+    </p>
+  </header>
+
+  <!-- 節拍器主控制區 -->
+  <main id="metronome-main">
+    <!-- 頁面開頭狀態朗讀區 (隨設定即時同步更新) -->
+    <div id="status-summary" class="sr-only">
+      節拍器已載入，目前設定為 120 BPM，拍號 4 拍 (4/4)。
+    </div>
+    <!-- 獨立動態事件播報區 (定時結束或提醒時發出) -->
+    <div id="announcer" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
+
+    <!-- 第二個標題：節拍器設定區 -->
+    <section class="section-container" aria-labelledby="heading-metronome-settings">
+      <h2 id="heading-metronome-settings" class="section-title" tabindex="0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+        節拍器設定
+      </h2>
+
+      <!-- 拍號與進階設定區 -->
+      <div class="settings-grid">
+        <!-- 拍號選單 -->
+        <div class="input-group">
+          <label for="time-signature">拍號 (Time Signature)</label>
+          <select id="time-signature" aria-label="設定每小節拍數">
+            <option value="1">1 拍 (無重音)</option>
+            <option value="2">2 拍 (2/4)</option>
+            <option value="3">3 拍 (3/4)</option>
+            <option value="4" selected>4 拍 (4/4, 預設)</option>
+            <option value="5">5 拍 (5/4)</option>
+            <option value="6">6 拍 (6/8)</option>
+            <option value="7">7 拍 (7/8)</option>
+            <option value="8">8 拍</option>
+            <option value="9">9 拍 (9/8)</option>
+            <option value="10">10 拍</option>
+            <option value="11">11 拍</option>
+            <option value="12">12 拍 (12/8)</option>
+            <option value="16">16 拍</option>
+          </select>
+        </div>
+
+        <!-- 音色引擎選單 -->
+        <div class="input-group">
+          <label for="sound-engine">音色 (Sound Type)</label>
+          <select id="sound-engine" aria-label="設定節拍器音色">
+            <option value="woodblock">仿真木魚 (Woodblock)</option>
+            <option value="claves">清脆響棒 (Claves)</option>
+            <option value="chime" selected>三角鐵琴 (Chime/Bell)</option>
+            <option value="drum">深沉爵士鼓 (Drum/Kick)</option>
+            <option value="classic">電子嗶嗶聲 (Classic Beep)</option>
+          </select>
+        </div>
+
+        <!-- 音量控制 -->
+        <div class="input-group-full">
+          <div class="volume-header">
+            <label for="volume-control">音量 (Volume)</label>
+            <span id="volume-value-display" aria-hidden="true">80%</span>
+          </div>
+          <div class="volume-slider-row">
+            <!-- 喇叭圖示 (SVG) -->
+            <svg id="volume-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--text-muted); flex-shrink: 0;">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            <div class="slider-container">
+              <input 
+                type="range" 
+                id="volume-control" 
+                min="0" 
+                max="100" 
+                value="80" 
+                step="1"
+                aria-label="調整音量"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="80"
+                aria-valuetext="音量80%"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 輔助選項：視覺閃爍與重音設定 (改為原生按鈕，點字顯示器與語音完全支援) -->
+      <div class="switch-container">
+        <div class="switch-info">
+          <span class="switch-title">視覺閃爍提示</span>
+          <div class="switch-label-desc">在每次拍子時閃爍指示燈與卡片</div>
+        </div>
+        <button 
+          type="button" 
+          id="toggle-flash" 
+          class="btn-setting-toggle" 
+          aria-pressed="false"
+          aria-label="視覺閃爍提示"
+        >
+          視覺閃爍
+        </button>
+      </div>
+
+      <div class="switch-container" style="margin-top: 10px;">
+        <div class="switch-info">
+          <span class="switch-title">第一拍重音效果</span>
+          <div class="switch-label-desc">每小節第一拍使用較高音調</div>
+        </div>
+        <button 
+          type="button" 
+          id="toggle-accent" 
+          class="btn-setting-toggle" 
+          aria-pressed="true"
+          aria-label="第一拍重音效果"
+        >
+          第一拍重音
+        </button>
+      </div>
+
+      <!-- BPM 數值顯示與無障礙文字 (移至此區最後面，緊鄰下方播放按鈕) -->
+      <div class="bpm-display-container">
+        <div class="bpm-number" id="bpm-value-display" aria-hidden="true">120</div>
+        <div class="bpm-label" aria-hidden="true">BPM</div>
+        
+        <!-- 手動輸入 BPM 區塊與輕敲測速 -->
+        <div class="bpm-input-wrapper">
+          <label for="bpm-manual-input" class="bpm-input-label">手動設定</label>
+          <input 
+            type="number" 
+            id="bpm-manual-input" 
+            class="bpm-input-field" 
+            value="" 
+            min="20"
+            max="3000"
+            placeholder="BPM"
+            aria-label="手動設定每分鐘拍數，範圍 20 至 3000"
+          >
+          <button 
+            type="button" 
+            id="btn-tap-tempo" 
+            class="btn-tap" 
+            aria-label="輕敲測速 (快捷鍵 T)" 
+            title="跟隨節奏點擊測速 (快捷鍵 T)"
+          >
+            輕敲測速 (Tap)
+          </button>
+        </div>
+
+        <span class="sr-only" id="bpm-sr-reader">每分鐘拍數：120 拍</span>
+      </div>
+
+      <!-- 視覺節拍指示燈 -->
+      <div class="visual-beats-container" id="visual-indicators" aria-hidden="true" title="節拍視覺指示燈">
+        <!-- 動態由 JavaScript 生成對應數量的指示燈 -->
+      </div>
+
+      <!-- BPM 控制項：滑桿與調整按鈕 -->
+      <div class="control-row">
+        <button class="btn-adjust" id="btn-sub-5" aria-label="-5 BPM" title="-5 BPM">-5</button>
+        <button class="btn-adjust" id="btn-sub-1" aria-label="-1 BPM" title="-1 BPM">-1</button>
+
+        <div class="slider-container">
+          <label for="bpm-slider" class="sr-only">調整每分鐘拍數 (BPM) 範圍20～500</label>
+          <input 
+            type="range" 
+            id="bpm-slider" 
+            min="20" 
+            max="500" 
+            value="120" 
+            step="1"
+            aria-valuemin="20"
+            aria-valuemax="500"
+            aria-valuenow="120"
+            aria-valuetext="120 BPM"
+          >
+        </div>
+
+        <button class="btn-adjust" id="btn-add-1" aria-label="+1 BPM" title="+1 BPM">+1</button>
+        <button class="btn-adjust" id="btn-add-5" aria-label="+5 BPM" title="+5 BPM">+5</button>
+      </div>
+    </section>
+
+    <!-- 第三個標題：播放與定時設定區 -->
+    <section class="section-container" id="play-timer-section" aria-labelledby="heading-play-timer">
+      <h2 id="heading-play-timer" class="section-title" tabindex="0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        播放與定時設定
+      </h2>
+
+      <!-- 播放控制按鈕 -->
+      <div class="btn-play-container">
+        <button class="btn-play" id="btn-toggle-play" aria-label="開始節拍器" aria-pressed="false" title="播放/暫停 (空白鍵)">
+          <!-- 使用 SVG 圖示，並標記為裝飾性，不影響螢幕閱讀器 -->
+          <svg id="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="margin-left: 4px;">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <svg id="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display: none;">
+            <rect x="6" y="4" width="4" height="16"></rect>
+            <rect x="14" y="4" width="4" height="16"></rect>
+          </svg>
+        </button>
+      </div>
+
+      <!-- 運行中的定時剩餘時間醒目顯示區 (在開始節拍器下方、選定時上方) -->
+      <div id="running-timer-wrapper" class="running-timer-wrapper" style="display: none;">
+        <div class="running-timer-badge">
+          <span class="running-timer-title">定時剩餘時間：</span>
+          <span class="running-timer-time" id="running-timer-display">00:00:00</span>
+        </div>
+      </div>
+
+      <!-- 定時關閉控制區 -->
+      <div class="timer-card" role="region" aria-label="定時關閉控制台">
+        <div class="timer-header">
+          <span class="timer-title">定時關閉</span>
+          <span class="timer-status" id="timer-status-display">未設定定時</span>
+        </div>
+
+        <div class="timer-controls-grid">
+          <!-- 快速選單 -->
+          <div class="input-group">
+            <label for="timer-select">定時選單</label>
+            <select id="timer-select" aria-label="定時關閉時間選單">
+              <option value="0" selected>無</option>
+              <option value="30">30 秒</option>
+              <option value="60">1 分鐘</option>
+              <option value="180">3 分鐘</option>
+              <option value="300">5 分鐘</option>
+              <option value="600">10 分鐘</option>
+              <option value="1800">30 分鐘</option>
+              <option value="custom" id="timer-select-custom">自訂</option>
+            </select>
+          </div>
+
+          <!-- 自訂時分秒輸入框 (支援智慧防呆、純數字自動補冒號、上下鍵調秒數) -->
+          <div class="input-group">
+            <label for="timer-custom-input">手動輸入 (時:分:秒)</label>
+            <input 
+              type="text" 
+              id="timer-custom-input" 
+              class="timer-custom-field" 
+              placeholder="00:00:00" 
+              maxlength="8"
+              inputmode="numeric"
+              aria-label="手動設定定時關閉時間，可輸入時:分:秒或輸入純數字自動補冒號，亦可按方向鍵上下鍵每次調整 5 秒"
+              autocomplete="off"
+            >
+          </div>
+        </div>
+
+        <!-- 切換按鈕：結束時提醒我 + 剩餘1分鐘提醒 + 重置定時 -->
+        <div class="timer-action-row">
+          <button 
+            type="button" 
+            id="btn-timer-reminder" 
+            class="btn-reminder" 
+            aria-pressed="true"
+            aria-label="結束時提醒我"
+          >
+            結束時提醒我
+          </button>
+          <button 
+            type="button" 
+            id="btn-one-min-reminder" 
+            class="btn-reminder" 
+            aria-pressed="false"
+            aria-label="剩餘 1 分鐘提醒"
+            style="display: none;"
+          >
+            剩餘 1 分鐘提醒
+          </button>
+          <button
+            type="button"
+            id="btn-reset-timer"
+            class="btn-reset-timer"
+            aria-label="重置定時，回到尚未開始的狀態，定時設定保持不變"
+            title="重置定時倒數"
+          >
+            重置
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 第四個標題：操作說明區 -->
+  <footer>
+    <div class="shortcuts-card">
+      <h2 class="shortcuts-title" tabindex="0">操作與快捷鍵說明</h2>
+      <ul class="shortcuts-list">
+        <li><kbd>Space</kbd> 播放/暫停</li>
+        <li><kbd>T</kbd> 輕敲測速</li>
+        <li><kbd>←</kbd> <kbd>→</kbd> 調整 1 BPM</li>
+        <li><kbd>↑</kbd> <kbd>↓</kbd> 調整 5 BPM</li>
+      </ul>
+      <p style="margin-top: 12px; font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; text-align: left;">
+        快捷鍵與操作說明：可隨時按空白鍵播放或暫停；方向鍵可微調每分鐘拍數；按 T 鍵或點擊「輕敲測速」按鈕跟隨節奏敲擊兩次以上，系統將自動計算並換算 BPM。<br><br>
+        定時關閉說明：預設為無。您可使用下拉選單選擇預設時間，或在手動輸入框填寫時間。輸入框具備智慧防呆與自動補冒號功能：可輸入純數字（例如直接輸入 000305 代表 3 分 5 秒，系統會自動補冒號為 00:03:05），小時上限 99，分鐘與秒鐘若超過 59 將自動進位換算（例如輸入 90 秒會自動進位為 00:01:30）；按 Enter 或 Tab 完成輸入，若為非預設時間選單會自動同步為「自訂」。輸入框同時具備調整桿功能，按方向鍵向上鍵（↑）或向下鍵（↓）可每次調整 5 秒，播放中微調亦會同步更新剩餘倒數時間。啟動節拍器後，若有設定定時會在播放按鈕下方即時顯示剩餘時間倒數。按下暫停時，倒數會暫停保留剩餘進度，再次播放時繼續倒數。若需從頭重算，請按「重置」按鈕。「結束時提醒我」按鈕可開啟或關閉提示音。當定時設定為 1 分鐘以上時，將自動顯示「剩餘 1 分鐘提醒」按鈕（預設關閉），開啟後會在倒數剩餘 1 分鐘時顯示提醒文字並播放提示音。
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // --- 狀態宣告與初始化 ---
+    const state = {
+      isPlaying: false,
+      bpm: 120,
+      beatsPerMeasure: 4,
+      currentBeat: 0,
+      volume: 0.8,
+      soundType: 'chime',
+      useAccent: true,
+      useFlash: false,
+      timerDuration: 0,          // 定時關閉設定總秒數 (0 為無)
+      timerRemaining: 0,         // 定時關閉目前剩餘秒數
+      timerSoundEnabled: true,   // 結束時是否播放提示音
+      oneMinReminderEnabled: false // 剩餘一分鐘提醒 (預設關閉)
+    };
+
+    // Web Audio API 相關變數
+    let audioContext = null;
+    let nextNoteTime = 0.0;     // 下一次音符發生的精確時間 (秒)
+    let timerID = null;         // Scheduler loop interval id
+    const lookahead = 25.0;     // 每隔多少毫秒檢查一次排程 (ms)
+    const scheduleAheadTime = 0.1; // 預先排程的時間長度 (s)
+    let volTimeout = null;      // 用於音量滑桿延遲朗讀的變數
+    let timerCountdownInterval = null; // 定時關閉倒數計時器
+    let wakeLockSentinel = null; // 螢幕保持喚醒 (Screen Wake Lock) 控制實例
+
+    // --- 螢幕保持喚醒控制 (Screen Wake Lock API) ---
+    async function requestWakeLock() {
+      if ('wakeLock' in navigator) {
+        try {
+          if (!wakeLockSentinel) {
+            wakeLockSentinel = await navigator.wakeLock.request('screen');
+            wakeLockSentinel.addEventListener('release', () => {
+              wakeLockSentinel = null;
+            });
+          }
+        } catch (err) {
+          wakeLockSentinel = null;
+        }
+      }
+    }
+
+    async function releaseWakeLock() {
+      if (wakeLockSentinel) {
+        try {
+          await wakeLockSentinel.release();
+        } catch (err) {
+          // 釋放時例外靜默處理
+        }
+        wakeLockSentinel = null;
+      }
+    }
+
+    // DOM 元素快取
+    const mainCard = document.getElementById('metronome-main');
+    const bpmSlider = document.getElementById('bpm-slider');
+    const bpmDisplay = document.getElementById('bpm-value-display');
+    const bpmSrReader = document.getElementById('bpm-sr-reader');
+    const btnTogglePlay = document.getElementById('btn-toggle-play');
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
+    const timerSelect = document.getElementById('timer-select');
+    const timerCustomInput = document.getElementById('timer-custom-input');
+    const btnTimerReminder = document.getElementById('btn-timer-reminder');
+    const btnOneMinReminder = document.getElementById('btn-one-min-reminder');
+    const btnResetTimer = document.getElementById('btn-reset-timer');
+    const timerStatusDisplay = document.getElementById('timer-status-display');
+    const runningTimerWrapper = document.getElementById('running-timer-wrapper');
+    const runningTimerDisplay = document.getElementById('running-timer-display');
+    const timeSignatureSelect = document.getElementById('time-signature');
+    const soundEngineSelect = document.getElementById('sound-engine');
+    const volumeControl = document.getElementById('volume-control');
+    const volumeValueDisplay = document.getElementById('volume-value-display');
+    const volumeIcon = document.getElementById('volume-icon');
+    const toggleFlash = document.getElementById('toggle-flash');
+    const toggleAccent = document.getElementById('toggle-accent');
+    const visualIndicatorsContainer = document.getElementById('visual-indicators');
+    const announcer = document.getElementById('announcer');
+
+    // BPM 按鈕
+    const btnSub5 = document.getElementById('btn-sub-5');
+    const btnSub1 = document.getElementById('btn-sub-1');
+    const btnAdd1 = document.getElementById('btn-add-1');
+    const btnAdd5 = document.getElementById('btn-add-5');
+    const btnTapTempo = document.getElementById('btn-tap-tempo');
+
+    // 輕敲測速時間戳記錄陣列
+    let tapTimes = [];
+
+    // --- 音效排程系統 (Web Audio API) ---
+
+    // 初始化 Audio Context (在使用者觸發互動時)
+    function initAudio() {
+      if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    // 排程並撥放單個節拍音符
+    function scheduleNote(beatNumber, time) {
+      if (!audioContext) return;
+
+      const osc = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+
+      osc.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+
+      const isFirstBeat = (state.beatsPerMeasure > 1 && beatNumber === 0);
+
+      // 根據選擇的音色引擎生成不同的音效波形
+      if (state.soundType === 'woodblock') {
+        // 仿真木魚：三角波 + 快速頻率滑落
+        osc.type = 'triangle';
+        const baseFreq = isFirstBeat && state.useAccent ? 1300 : 950;
+        osc.frequency.setValueAtTime(baseFreq, time);
+        // 在 0.035 秒內快速下滑音調，創造敲擊質感
+        osc.frequency.exponentialRampToValueAtTime(150, time + 0.035);
+
+        gainNode.gain.setValueAtTime(state.volume, time);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, time + 0.045);
+        osc.start(time);
+        osc.stop(time + 0.05);
+      } else if (state.soundType === 'claves') {
+        // 清脆響棒：正弦波 + 高頻極速衰減 (高穿透力與顆粒感)
+        osc.type = 'sine';
+        const baseFreq = isFirstBeat && state.useAccent ? 2500 : 2000;
+        osc.frequency.setValueAtTime(baseFreq, time);
+
+        gainNode.gain.setValueAtTime(state.volume, time);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, time + 0.025);
+        osc.start(time);
+        osc.stop(time + 0.03);
+      } else if (state.soundType === 'chime') {
+        // 三角鐵琴：正弦波 + 高頻 + 長餘音
+        osc.type = 'sine';
+        const baseFreq = isFirstBeat && state.useAccent ? 2000 : 1600;
+        osc.frequency.setValueAtTime(baseFreq, time);
+
+        gainNode.gain.setValueAtTime(state.volume, time);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, time + 0.28);
+        osc.start(time);
+        osc.stop(time + 0.3);
+      } else if (state.soundType === 'drum') {
+        // 深沉爵士鼓：正弦波 + 低頻段極速滑落
+        osc.type = 'sine';
+        const baseFreq = isFirstBeat && state.useAccent ? 180 : 130;
+        osc.frequency.setValueAtTime(baseFreq, time);
+        osc.frequency.exponentialRampToValueAtTime(0.01, time + 0.07);
+
+        gainNode.gain.setValueAtTime(state.volume, time);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, time + 0.08);
+        osc.start(time);
+        osc.stop(time + 0.09);
+      } else {
+        // 經典嗶嗶聲：正弦波固定高頻
+        osc.type = 'sine';
+        const baseFreq = isFirstBeat && state.useAccent ? 1000 : 800;
+        osc.frequency.setValueAtTime(baseFreq, time);
+
+        gainNode.gain.setValueAtTime(state.volume, time);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, time + 0.08);
+        osc.start(time);
+        osc.stop(time + 0.1);
+      }
+
+      // 排程視覺閃爍回饋 (在精確的時間點透過動畫同步)
+      const delayMs = (time - audioContext.currentTime) * 1000;
+      setTimeout(() => {
+        triggerVisualFlash(beatNumber, isFirstBeat);
+      }, Math.max(0, delayMs));
+    }
+
+    // 移動到下一個節拍點
+    function nextNote() {
+      const secondsPerBeat = 60.0 / state.bpm;
+      nextNoteTime += secondsPerBeat;
+      state.currentBeat = (state.currentBeat + 1) % state.beatsPerMeasure;
+    }
+
+    // 定期排程器 (Scheduler Loop)
+    function scheduler() {
+      while (nextNoteTime < audioContext.currentTime + scheduleAheadTime) {
+        scheduleNote(state.currentBeat, nextNoteTime);
+        nextNote();
+      }
+      timerID = setTimeout(scheduler, lookahead);
+    }
+
+    // --- 視覺控制 ---
+
+    // 建立視覺拍子燈號
+    function setupVisualIndicators() {
+      visualIndicatorsContainer.innerHTML = '';
+      for (let i = 0; i < state.beatsPerMeasure; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('beat-dot');
+        dot.setAttribute('id', `beat-dot-${i}`);
+        visualIndicatorsContainer.appendChild(dot);
+      }
+    }
+
+    // 觸發視覺閃爍提示
+    function triggerVisualFlash(beatNumber, isFirstBeat) {
+      if (!state.useFlash) return;
+
+      // 超過 200 BPM 時只閃爍第一拍 (第 0 拍)，其餘拍跳過以避免頻繁閃爍干擾視覺
+      if (state.bpm > 200 && beatNumber !== 0) {
+        clearVisualFlash();
+        return;
+      }
+
+      const dots = visualIndicatorsContainer.querySelectorAll('.beat-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.remove('accent-active', 'normal-active');
+        if (idx === beatNumber) {
+          if (isFirstBeat && state.useAccent) {
+            dot.classList.add('accent-active');
+            
+            // 卡片脈動特效：第一拍重音
+            mainCard.classList.remove('pulse-normal');
+            mainCard.classList.add('pulse-accent');
+            setTimeout(() => mainCard.classList.remove('pulse-accent'), 120);
+          } else {
+            dot.classList.add('normal-active');
+
+            // 卡片脈動特效：普通拍
+            mainCard.classList.remove('pulse-accent');
+            mainCard.classList.add('pulse-normal');
+            setTimeout(() => mainCard.classList.remove('pulse-normal'), 120);
+          }
+        }
+      });
+    }
+
+    // 清除所有視覺點亮狀態
+    function clearVisualFlash() {
+      const dots = visualIndicatorsContainer.querySelectorAll('.beat-dot');
+      dots.forEach(dot => dot.classList.remove('accent-active', 'normal-active'));
+      mainCard.classList.remove('pulse-accent', 'pulse-normal');
+    }
+
+    // --- 提示音合成系統 (Web Audio API) ---
+    // 合成柔和悅耳的結束提示音 (由高至低倒過來播放，象徵圓滿收斂與平靜)
+    function playReminderChime() {
+      initAudio();
+      if (audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+
+      const now = audioContext.currentTime;
+      // 倒過來播放的和弦琶音頻率：C6 (1046.50Hz), G5 (783.99Hz), E5 (659.25Hz), C5 (523.25Hz)
+      const chimeNotes = [
+        { freq: 1046.50, timeOffset: 0.00 },
+        { freq: 783.99, timeOffset: 0.12 },
+        { freq: 659.25, timeOffset: 0.24 },
+        { freq: 523.25, timeOffset: 0.36 }
+      ];
+
+      chimeNotes.forEach(note => {
+        const osc = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+
+        osc.type = 'sine'; // 純淨柔和的正弦波
+        osc.frequency.setValueAtTime(note.freq, now + note.timeOffset);
+
+        // 溫和的淡入淡出包絡線
+        const noteStart = now + note.timeOffset;
+        const noteDuration = 1.2;
+        const volumeFactor = Math.min(Math.max(state.volume, 0.3), 0.8) * 0.35;
+
+        gain.gain.setValueAtTime(0.0001, noteStart);
+        gain.gain.exponentialRampToValueAtTime(volumeFactor, noteStart + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, noteStart + noteDuration);
+
+        osc.connect(gain);
+        gain.connect(audioContext.destination);
+
+        osc.start(noteStart);
+        osc.stop(noteStart + noteDuration + 0.05);
+      });
+    }
+
+    // 合成剩餘一分鐘提示音 (兩聲清脆柔和的短音琶音：A5 -> C6)
+    function playOneMinuteReminderChime() {
+      initAudio();
+      if (audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+
+      const now = audioContext.currentTime;
+      const notes = [
+        { freq: 880.00, timeOffset: 0.00 },
+        { freq: 1046.50, timeOffset: 0.16 }
+      ];
+
+      notes.forEach(note => {
+        const osc = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(note.freq, now + note.timeOffset);
+
+        const noteStart = now + note.timeOffset;
+        const noteDuration = 0.35;
+        const volumeFactor = Math.min(Math.max(state.volume, 0.3), 0.8) * 0.35;
+
+        gain.gain.setValueAtTime(0.0001, noteStart);
+        gain.gain.exponentialRampToValueAtTime(volumeFactor, noteStart + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, noteStart + noteDuration);
+
+        osc.connect(gain);
+        gain.connect(audioContext.destination);
+
+        osc.start(noteStart);
+        osc.stop(noteStart + noteDuration + 0.05);
+      });
+    }
+
+    // --- 定時器時間工具函數 ---
+    // 將總秒數轉換為 00:00:00 (時:分:秒)
+    function formatTime(totalSeconds) {
+      if (totalSeconds <= 0) return "00:00:00";
+      const clamped = Math.min(359999, Math.max(0, totalSeconds)); // 最多 99:59:59
+      const h = Math.floor(clamped / 3600);
+      const m = Math.floor((clamped % 3600) / 60);
+      const s = clamped % 60;
+      return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    // 智慧時間解析與防呆函式
+    // 支援純數字自動補冒號 (例如 000305 轉為 00:03:05)
+    // 防呆限制：小時最多兩位數 (0~99)，分鐘最多不超過 60，秒鐘最多不超過 60
+    function parseAndFormatSmartTime(raw) {
+      if (!raw || typeof raw !== 'string') return { sec: 0, text: '' };
+      const clean = raw.trim().replace(/[^0-9:]/g, '');
+      if (!clean) return { sec: 0, text: '' };
+
+      let h = 0, m = 0, s = 0;
+
+      if (clean.includes(':')) {
+        const parts = clean.split(':');
+        if (parts.length >= 3) {
+          h = parseInt(parts[0], 10) || 0;
+          m = parseInt(parts[1], 10) || 0;
+          s = parseInt(parts[2], 10) || 0;
+        } else if (parts.length === 2) {
+          m = parseInt(parts[0], 10) || 0;
+          s = parseInt(parts[1], 10) || 0;
+        } else {
+          s = parseInt(parts[0], 10) || 0;
+        }
+      } else {
+        const digits = clean;
+        if (digits.length >= 5) {
+          // 5 或 6 位純數字 (HHMMSS)，例如 000305 -> 00:03:05
+          const padded = digits.padStart(6, '0').slice(-6);
+          h = parseInt(padded.slice(0, 2), 10) || 0;
+          m = parseInt(padded.slice(2, 4), 10) || 0;
+          s = parseInt(padded.slice(4, 6), 10) || 0;
+        } else if (digits.length >= 3) {
+          // 3 或 4 位純數字 (MMSS)，例如 0305 -> 00:03:05，5000 -> 00:50:00
+          const padded = digits.padStart(4, '0').slice(-4);
+          m = parseInt(padded.slice(0, 2), 10) || 0;
+          s = parseInt(padded.slice(2, 4), 10) || 0;
+        } else {
+          // 1 或 2 位純數字，視為秒數
+          s = parseInt(digits, 10) || 0;
+        }
+      }
+
+      // 防呆機制：換算總秒數並自動進位 (分鐘與秒鐘超過 59 自動進位，上限為 99:59:59)
+      const rawTotal = Math.max(0, h) * 3600 + Math.max(0, m) * 60 + Math.max(0, s);
+      const totalSec = Math.min(359999, rawTotal);
+      if (totalSec === 0) return { sec: 0, text: '' };
+
+      return {
+        sec: totalSec,
+        text: formatTime(totalSec)
+      };
+    }
+
+    // 將字串解析為總秒數 (相容函式)
+    function parseTimeString(str) {
+      return parseAndFormatSmartTime(str).sec;
+    }
+
+    // 檢查並切換「剩餘 1 分鐘提醒」按鈕顯示狀態 (超過 1 分鐘，即 61 秒以上)
+    function checkOneMinuteReminderVisibility() {
+      if (!btnOneMinReminder) return;
+      if (state.timerDuration > 60) {
+        btnOneMinReminder.style.display = 'inline-flex';
+      } else {
+        btnOneMinReminder.style.display = 'none';
+      }
+    }
+
+    // 更新定時總時間，並扣除已播放秒數（確保中途更改定時、BPM等設定都不會被重置）
+    function applyNewTimerDuration(newDuration) {
+      const oldDuration = state.timerDuration || 0;
+      const oldRemaining = state.timerRemaining || 0;
+
+      // 計算目前已經播放過的秒數（已消耗時間）
+      let elapsed = 0;
+      if (oldDuration > 0 && oldRemaining > 0 && oldRemaining <= oldDuration) {
+        elapsed = oldDuration - oldRemaining;
+      }
+
+      state.timerDuration = newDuration;
+
+      if (newDuration === 0) {
+        // 設定為無定時：停止倒數，剩餘時間歸零
+        state.timerRemaining = 0;
+        stopTimerCountdown();
+      } else {
+        // 新剩餘時間 = 新總設定時長 - 已播放秒數
+        const newRemaining = Math.max(0, newDuration - elapsed);
+
+        if (state.isPlaying) {
+          if (newRemaining <= 0) {
+            // 已播放時間已超過或等於新定時長度：立即觸發定時結束
+            stopTimerCountdown();
+            stop();
+            if (state.timerSoundEnabled) {
+              playReminderChime();
+              announce('定時結束，節拍器已自動停止。');
+            }
+            state.timerRemaining = newDuration;
+          } else {
+            state.timerRemaining = newRemaining;
+            // 若原本尚未啟動倒數計時器則啟動
+            if (!timerCountdownInterval) {
+              startTimerCountdown();
+            }
+          }
+        } else {
+          // 未在播放時（暫停中或尚未開始）
+          if (elapsed > 0 && newRemaining > 0) {
+            // 暫停中保留已播放進度，扣除已播時間
+            state.timerRemaining = newRemaining;
+          } else {
+            // 尚未開始過，剩餘時間等同於新設定時間
+            state.timerRemaining = newDuration;
+          }
+        }
+      }
+
+      updateTimerDisplay();
+      checkOneMinuteReminderVisibility();
+    }
+
+    // 更新定時狀態顯示
+    function updateTimerDisplay() {
+      if (state.timerDuration === 0) {
+        timerStatusDisplay.textContent = "未設定定時";
+        timerStatusDisplay.classList.remove('active');
+      } else {
+        timerStatusDisplay.classList.add('active');
+        if (state.isPlaying) {
+          if (state.timerRemaining <= 60 && state.timerRemaining >= 55 && state.oneMinReminderEnabled && state.timerDuration > 60) {
+            timerStatusDisplay.textContent = `倒數中：${formatTime(state.timerRemaining)} (剩餘 1 分鐘！)`;
+          } else {
+            timerStatusDisplay.textContent = `倒數中：${formatTime(state.timerRemaining)}`;
+          }
+        } else if (state.timerRemaining > 0 && state.timerRemaining < state.timerDuration) {
+          // 有定時且已暫停（剩餘時間介於 0 與設定值之間）：顯示暫停中剩餘
+          timerStatusDisplay.textContent = `暫停中：剩餘 ${formatTime(state.timerRemaining)}`;
+        } else {
+          timerStatusDisplay.textContent = `已設定：${formatTime(state.timerDuration)}`;
+        }
+      }
+
+      // 播放中 或 暫停中有剩餘時間 → 都顯示剩餘時間 badge
+      if (runningTimerWrapper && runningTimerDisplay) {
+        const showBadge = state.timerDuration > 0 &&
+          (state.isPlaying || (state.timerRemaining > 0 && state.timerRemaining < state.timerDuration));
+        if (showBadge) {
+          runningTimerWrapper.style.display = 'flex';
+          runningTimerDisplay.textContent = formatTime(state.timerRemaining);
+        } else {
+          runningTimerWrapper.style.display = 'none';
+        }
+      }
+    }
+
+    // 啟動定時倒數
+    function startTimerCountdown() {
+      stopTimerCountdown();
+      if (state.timerDuration <= 0) return;
+
+      if (state.timerRemaining <= 0) {
+        state.timerRemaining = state.timerDuration;
+      }
+
+      updateTimerDisplay();
+
+      timerCountdownInterval = setInterval(() => {
+        if (!state.isPlaying) return;
+
+        state.timerRemaining--;
+        updateTimerDisplay();
+
+        // 剩餘 1 分鐘提醒：定時超過 1 分鐘 (61 秒以上) 且開啟提醒時播放提示音與提示
+        if (state.timerRemaining === 60 && state.oneMinReminderEnabled && state.timerDuration > 60) {
+          playOneMinuteReminderChime();
+          announce('定時提醒：剩餘 1 分鐘。');
+        }
+
+        if (state.timerRemaining <= 0) {
+          stopTimerCountdown();
+          stop(); // 自動停止節拍器
+
+          // 播放提示音 (若使用者開啟)
+          if (state.timerSoundEnabled) {
+            playReminderChime();
+            announce('定時結束，節拍器已自動停止。');
+          }
+
+          // 重設剩餘時間為設定值
+          state.timerRemaining = state.timerDuration;
+          updateTimerDisplay();
+        }
+      }, 1000);
+    }
+
+    // 停止定時倒數計時器
+    function stopTimerCountdown() {
+      if (timerCountdownInterval) {
+        clearInterval(timerCountdownInterval);
+        timerCountdownInterval = null;
+      }
+    }
+
+    // --- 朗讀通知器 (Screen Reader Announcer) ---
+    // 更新網頁開頭的狀態朗讀文字 (隨設定即時同步更新)
+    function updateStatusSummary() {
+      const summaryEl = document.getElementById('status-summary');
+      if (!summaryEl) return;
+      let timeSignText = '4 拍 (4/4)';
+      if (timeSignatureSelect && timeSignatureSelect.options[timeSignatureSelect.selectedIndex]) {
+        timeSignText = timeSignatureSelect.options[timeSignatureSelect.selectedIndex].text.replace(', 預設', '');
+      }
+      summaryEl.textContent = `節拍器目前設定為 ${state.bpm} BPM，拍號 ${timeSignText}。`;
+    }
+
+    // 只在定時結束且使用者開啟「結束時提醒我」時才播報
+    function announce(message) {
+      announcer.textContent = '';
+      // 利用短暫清空再賦值，確保 aria-live 能重新觸發播報
+      requestAnimationFrame(() => {
+        announcer.textContent = message;
+      });
+    }
+
+    // --- 邏輯狀態控制與同步 ---
+
+    // 啟動節拍器
+    function play() {
+      initAudio();
+      
+      // 確保 Audio Context 為 running 狀態 (解決瀏覽器自動播放防護機制)
+      if (audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+
+      state.isPlaying = true;
+      state.currentBeat = 0;
+      nextNoteTime = audioContext.currentTime + 0.05;
+
+      btnTogglePlay.setAttribute('aria-pressed', 'true');
+      btnTogglePlay.setAttribute('aria-label', '暫停節拍器');
+      btnTogglePlay.classList.add('playing');
+      playIcon.style.display = 'none';
+      pauseIcon.style.display = 'block';
+
+      scheduler();
+      requestWakeLock(); // 播放中保持螢幕喚醒
+
+      // 如果有設定定時，繼續從 timerRemaining 倒數（暫停後繼續不重置）
+      // 若 timerRemaining 為 0（尚未開始過），則重設為 timerDuration
+      if (state.timerDuration > 0) {
+        if (state.timerRemaining <= 0) {
+          state.timerRemaining = state.timerDuration;
+        }
+        startTimerCountdown();
+      }
+      updateTimerDisplay();
+    }
+
+    // 暫停節拍器（若有定時中，保留剩餘時間，不重置）
+    function pause() {
+      state.isPlaying = false;
+      clearTimeout(timerID);
+      clearVisualFlash();
+      releaseWakeLock(); // 暫停時釋放螢幕喚醒鎖定
+      // 只停止倒數計時器，不重置 timerRemaining（讓暫停後可繼續）
+      stopTimerCountdown();
+      updateTimerDisplay();
+
+      btnTogglePlay.setAttribute('aria-pressed', 'false');
+      btnTogglePlay.setAttribute('aria-label', '開始節拍器');
+      btnTogglePlay.classList.remove('playing');
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+    }
+
+    // 完整停止節拍器，並重置定時剩餘時間（定時關閉結束後使用）
+    function stop() {
+      state.isPlaying = false;
+      clearTimeout(timerID);
+      clearVisualFlash();
+      releaseWakeLock(); // 停止時釋放螢幕喚醒鎖定
+      stopTimerCountdown();
+      // 定時到期後才重置剩餘時間
+      state.timerRemaining = state.timerDuration;
+      updateTimerDisplay();
+
+      btnTogglePlay.setAttribute('aria-pressed', 'false');
+      btnTogglePlay.setAttribute('aria-label', '開始節拍器');
+      btnTogglePlay.classList.remove('playing');
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+    }
+
+    // 播放/暫停 切換（使用者手動按鈕：有定時時用 pause 保留進度）
+    function togglePlay() {
+      if (state.isPlaying) {
+        // 若有定時設定，暫停時保留剩餘時間；若無定時，行為與 stop 相同
+        if (state.timerDuration > 0) {
+          pause();
+        } else {
+          stop();
+        }
+      } else {
+        play();
+      }
+    }
+
+    // 更新 BPM
+    function updateBpm(value) {
+      // 限制數值範圍 (最小為 20)
+      const cleanValue = Math.max(20, parseInt(value) || 120);
+      state.bpm = cleanValue;
+
+      // 自動縮放滑桿上限：BPM 超過 500 時擴大，降回 500 以下時縮回
+      const sliderMax = Math.max(500, cleanValue);
+      bpmSlider.max = sliderMax;
+      bpmSlider.setAttribute('aria-valuemax', sliderMax);
+
+      // 同步滑桿與顯示
+      bpmSlider.value = cleanValue;
+      bpmDisplay.textContent = cleanValue;
+      bpmSrReader.textContent = `每分鐘拍數：${cleanValue} 拍`;
+
+      // 更新 ARIA 屬性以符合無障礙
+      bpmSlider.setAttribute('aria-valuenow', cleanValue);
+      bpmSlider.setAttribute('aria-valuetext', `${cleanValue} BPM`);
+      
+      // 同步手動輸入框 (若使用者不在輸入框打字中)
+      const manualInput = document.getElementById('bpm-manual-input');
+      if (manualInput && document.activeElement !== manualInput && parseInt(manualInput.value) !== cleanValue) {
+        manualInput.value = cleanValue;
+      }
+
+      // 即時同步網頁開頭的狀態朗讀摘要
+      updateStatusSummary();
+    }
+
+    // 更新音量圖示
+    function updateVolumeIcon(value) {
+      if (value === 0) {
+        // 靜音圖示
+        volumeIcon.innerHTML = `
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <line x1="23" y1="9" x2="17" y2="15"></line>
+          <line x1="17" y1="9" x2="23" y2="15"></line>
+        `;
+      } else if (value < 50) {
+        // 中低音量圖示
+        volumeIcon.innerHTML = `
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        `;
+      } else {
+        // 高音量圖示
+        volumeIcon.innerHTML = `
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        `;
+      }
+    }
+
+    // --- 事件監聽器 (Event Listeners) ---
+
+    // 播放/暫停按鈕
+    btnTogglePlay.addEventListener('click', () => {
+      togglePlay();
+    });
+
+    // --- 定時關閉控制項事件監聽 ---
+    // 下拉選單變更
+    timerSelect.addEventListener('change', (e) => {
+      if (e.target.value === 'custom') {
+        // 使用者主動選「自訂」，若輸入框已有值則維持，焦點停留在選單上，用提示文字引導
+        if (state.timerDuration > 0) {
+          timerCustomInput.value = formatTime(state.timerDuration);
+        }
+        timerStatusDisplay.textContent = "已選自訂：請在手動輸入框設定時間";
+        timerStatusDisplay.classList.add('active');
+        return;
+      }
+
+      const val = parseInt(e.target.value, 10) || 0;
+      applyNewTimerDuration(val);
+
+      if (val === 0) {
+        timerCustomInput.value = "";
+      } else {
+        timerCustomInput.value = formatTime(val);
+      }
+    });
+
+    // 手動輸入框 (時:分:秒) 處理
+    // 將秒數同步到定時選單（輔助函數）
+    // 若符合預設選項則選中該項，不符合且大於 0 則選「自訂」，0 則選「無」
+    function syncTimerSelectTo(sec) {
+      if (sec <= 0) {
+        timerSelect.value = "0";
+        return;
+      }
+      let matched = false;
+      for (let opt of timerSelect.options) {
+        const optVal = parseInt(opt.value, 10);
+        if (!isNaN(optVal) && optVal === sec) {
+          timerSelect.value = String(sec);
+          matched = true;
+          break;
+        }
+      }
+      if (!matched) {
+        timerSelect.value = "custom";
+      }
+    }
+
+    function handleCustomTimerInput() {
+      const result = parseAndFormatSmartTime(timerCustomInput.value);
+      applyNewTimerDuration(result.sec);
+
+      if (result.sec > 0) {
+        timerCustomInput.value = result.text;
+        syncTimerSelectTo(result.sec);
+      } else {
+        timerCustomInput.value = "";
+        timerSelect.value = "0";
+      }
+    }
+
+    // 微調定時秒數 (讓輸入框同時具備調整桿功能，按上下鍵調整 5 秒，播放中即時同步倒數)
+    function adjustTimerSeconds(delta) {
+      const oldDuration = state.timerDuration || 0;
+      const sec = Math.max(0, oldDuration + delta);
+
+      applyNewTimerDuration(sec);
+
+      if (sec > 0) {
+        timerCustomInput.value = formatTime(sec);
+        syncTimerSelectTo(sec);
+      } else {
+        timerCustomInput.value = "";
+        timerSelect.value = "0";
+      }
+    }
+
+    let isTimerInputDeleting = false;
+
+    timerCustomInput.addEventListener('keydown', (e) => {
+      isTimerInputDeleting = (e.key === 'Backspace' || e.key === 'Delete');
+
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        adjustTimerSeconds(5);
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        adjustTimerSeconds(-5);
+      } else if (e.key === 'Enter') {
+        handleCustomTimerInput();
+        timerCustomInput.blur();
+      }
+    });
+
+    // 即時智慧輸入：移除非數字與冒號，輸入 6 位純數字時立即自動補冒號 (例如 000305 -> 00:03:05)
+    timerCustomInput.addEventListener('input', () => {
+      let val = timerCustomInput.value;
+      const cleanVal = val.replace(/[^0-9:]/g, '');
+      if (cleanVal !== val) {
+        timerCustomInput.value = cleanVal;
+        val = cleanVal;
+      }
+
+      // 如果不是在按退格鍵，且使用者輸入了 6 位純數字 (例如 000305)
+      const digitsOnly = val.replace(/\D/g, '');
+      if (!isTimerInputDeleting && !val.includes(':') && digitsOnly.length === 6) {
+        const result = parseAndFormatSmartTime(digitsOnly);
+        if (result.sec > 0) {
+          timerCustomInput.value = result.text;
+          handleCustomTimerInput();
+        }
+      }
+    });
+
+    timerCustomInput.addEventListener('change', handleCustomTimerInput);
+    timerCustomInput.addEventListener('blur', handleCustomTimerInput);
+
+    // 支援滾輪微調秒數 (每次 5 秒)
+    timerCustomInput.addEventListener('wheel', (e) => {
+      if (document.activeElement === timerCustomInput) {
+        e.preventDefault();
+        adjustTimerSeconds(e.deltaY < 0 ? 5 : -5);
+      }
+    });
+
+    // 提醒音切換按鈕 (原生按鈕，點擊時不觸發多餘朗讀)
+    btnTimerReminder.addEventListener('click', () => {
+      state.timerSoundEnabled = !state.timerSoundEnabled;
+      btnTimerReminder.setAttribute('aria-pressed', state.timerSoundEnabled ? 'true' : 'false');
+    });
+
+    // 剩餘 1 分鐘提醒切換按鈕 (原生按鈕，點擊時不觸發多餘朗讀)
+    if (btnOneMinReminder) {
+      btnOneMinReminder.addEventListener('click', () => {
+        state.oneMinReminderEnabled = !state.oneMinReminderEnabled;
+        btnOneMinReminder.setAttribute('aria-pressed', state.oneMinReminderEnabled ? 'true' : 'false');
+      });
+    }
+
+    // 重置定時按鈕：讓剩餘時間歸回設定值，但不改變定時設定（也不停止節拍器）
+    btnResetTimer.addEventListener('click', () => {
+      if (state.timerDuration <= 0) return;
+      // 重置剩餘時間為設定值
+      state.timerRemaining = state.timerDuration;
+      // 若節拍器正在播放，重啟倒數
+      if (state.isPlaying) {
+        startTimerCountdown();
+      }
+      updateTimerDisplay();
+    });
+
+    // BPM 滑桿變動 (即時/拖動)
+    bpmSlider.addEventListener('input', (e) => {
+      updateBpm(e.target.value);
+    });
+
+    bpmSlider.addEventListener('change', (e) => {
+      updateBpm(e.target.value);
+    });
+
+    // BPM 微調按鈕
+    btnSub5.addEventListener('click', () => updateBpm(state.bpm - 5));
+    btnSub1.addEventListener('click', () => updateBpm(state.bpm - 1));
+    btnAdd1.addEventListener('click', () => updateBpm(state.bpm + 1));
+    btnAdd5.addEventListener('click', () => updateBpm(state.bpm + 5));
+
+    // 手動輸入框事件監聽 (打字中途不觸發，避免節奏靜音延遲；離開或按 Enter 才套用)
+    const manualInput = document.getElementById('bpm-manual-input');
+
+    function applyManualBpmInput() {
+      let val = parseInt(manualInput.value, 10);
+      if (isNaN(val) || val < 20) {
+        val = Math.max(20, state.bpm);
+      } else if (val > 3000) {
+        val = 3000;
+      }
+      updateBpm(val);
+    }
+
+    manualInput.addEventListener('blur', applyManualBpmInput);
+
+    manualInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        manualInput.blur();
+      }
+    });
+
+    // --- 輕敲測速功能 (Tap Tempo) ---
+    function handleTapTempo() {
+      const now = performance.now();
+
+      // 超過 3 秒沒有再次敲擊，視為新的一輪測速 (可支援低至 20 BPM 慢速測速)
+      if (tapTimes.length > 0 && (now - tapTimes[tapTimes.length - 1] > 3000)) {
+        tapTimes = [];
+      }
+
+      tapTimes.push(now);
+
+      if (tapTimes.length >= 2) {
+        // 保留最多最近 4 次敲擊計算移動平均
+        if (tapTimes.length > 4) {
+          tapTimes.shift();
+        }
+
+        let totalIntervals = 0;
+        for (let i = 1; i < tapTimes.length; i++) {
+          totalIntervals += (tapTimes[i] - tapTimes[i - 1]);
+        }
+        const avgIntervalMs = totalIntervals / (tapTimes.length - 1);
+        const calculatedBpm = Math.round(60000 / avgIntervalMs);
+
+        // 更新 BPM (不產生額外朗讀訊息)
+        updateBpm(calculatedBpm);
+      }
+    }
+
+    if (btnTapTempo) {
+      btnTapTempo.addEventListener('click', handleTapTempo);
+    }
+
+    // 拍號選單
+    timeSignatureSelect.addEventListener('change', (e) => {
+      const val = parseInt(e.target.value);
+      state.beatsPerMeasure = val;
+      state.currentBeat = 0;
+      setupVisualIndicators();
+      updateStatusSummary();
+    });
+
+    // 音色引擎選單
+    soundEngineSelect.addEventListener('change', (e) => {
+      const val = e.target.value;
+      state.soundType = val;
+    });
+
+    // 音量滑桿
+    volumeControl.addEventListener('input', (e) => {
+      const val = parseInt(e.target.value);
+      state.volume = val / 100;
+      
+      // 更新顯示文字與 SVG 圖示
+      volumeValueDisplay.textContent = `${val}%`;
+      updateVolumeIcon(val);
+
+      volumeControl.setAttribute('aria-valuenow', val);
+      volumeControl.setAttribute('aria-valuetext', `音量${val}%`);
+      
+      if (volTimeout) clearTimeout(volTimeout);
+      volTimeout = null;
+    });
+
+    // 視覺閃爍切換 (原生按鈕，讓鍵盤操作更方便)
+    toggleFlash.addEventListener('click', () => {
+      state.useFlash = !state.useFlash;
+      toggleFlash.setAttribute('aria-pressed', state.useFlash ? 'true' : 'false');
+      if (!state.useFlash) {
+        clearVisualFlash();
+      }
+    });
+
+    // 第一拍重音切換 (原生按鈕，讓鍵盤操作更方便)
+    toggleAccent.addEventListener('click', () => {
+      state.useAccent = !state.useAccent;
+      toggleAccent.setAttribute('aria-pressed', state.useAccent ? 'true' : 'false');
+    });
+
+    // --- 鍵盤快速鍵支援 (鍵盤無障礙之關鍵) ---
+    window.addEventListener('keydown', (e) => {
+      const activeTag = document.activeElement.tagName.toLowerCase();
+      const isInputOrSelect = activeTag === 'input' || activeTag === 'select' || activeTag === 'button';
+
+      if (e.code === 'Space') {
+        if (e.repeat) {
+          e.preventDefault();
+          return;
+        }
+        // 如果焦點在按鈕上，讓預設的 Click 處理即可，避免重複觸發
+        if (activeTag !== 'button') {
+          e.preventDefault();
+          togglePlay();
+        }
+      } else if (e.code === 'ArrowRight' && !isInputOrSelect) {
+        e.preventDefault();
+        updateBpm(state.bpm + 1);
+      } else if (e.code === 'ArrowLeft' && !isInputOrSelect) {
+        e.preventDefault();
+        updateBpm(state.bpm - 1);
+      } else if (e.code === 'ArrowUp' && !isInputOrSelect) {
+        e.preventDefault();
+        updateBpm(state.bpm + 5);
+      } else if (e.code === 'ArrowDown' && !isInputOrSelect) {
+        e.preventDefault();
+        updateBpm(state.bpm - 5);
+      } else if ((e.key === 't' || e.key === 'T') && activeTag !== 'input' && !e.ctrlKey && !e.altKey && !e.metaKey) {
+        if (e.repeat) return;
+        e.preventDefault();
+        handleTapTempo();
+      }
+    });
+
+    // --- 頁面可見度變更：切回前台時若正在播放則重新請求螢幕喚醒鎖定 ---
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && state.isPlaying) {
+        requestWakeLock();
+      }
+    });
+
+    // --- 首次初始化載入 ---
+    setupVisualIndicators();
+    updateTimerDisplay();
+    checkOneMinuteReminderVisibility();
+    updateStatusSummary();
+
+    // --- 手機偵測：在純觸控裝置上隱藏鍵盤快捷鍵說明 ---
+    // 判斷依據：裝置支援觸控且沒有滑鼠游標（排除觸控板筆電）
+    function isTouchOnlyDevice() {
+      const hasTouch = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+      const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+      return hasTouch && isCoarsePointer;
+    }
+
+    if (isTouchOnlyDevice()) {
+      const shortcutsCard = document.querySelector('.shortcuts-card');
+      if (shortcutsCard) {
+        shortcutsCard.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
